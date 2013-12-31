@@ -1,0 +1,39 @@
+<!DOCTYPE HTML>
+<html ng-app="reres">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+    <link rel="stylesheet" href="css/bootstrap.min.css"/>
+    <link rel="stylesheet" href="css/popup.css"/>
+    <script type="text/javascript" src="js/angular.min.js"></script>
+    <script type="text/javascript" src="js/popup.js"></script>
+</head>
+<body ng-controller="mapListCtrl">
+<div class="container">
+
+<button class="btn-block btn btn-primary" ng-click="addRule()"> + </button>
+<div style="display:{{editShow}};" class="editBox">
+    <div class="form-group">
+        <label for="req">req:</label>
+        <input type="text" class="form-control" id="req" ng-model="curRule.req"/>
+    </div>
+    <div class="form-group">
+        <label for="res">res:</label>
+        <input type="text" class="form-control" id="res" ng-model="curRule.res"/>
+    </div>
+    <div class="form-group">
+        <label for="type">type:</label>
+        <select ng-model="curRule.type" class="form-control" id="type">
+            <option value="file">单文件映射</option>
+            <option value="dir">路径映射</option>
+        </select>
+    </div>
+    <button class="btn-block btn btn-primary" ng-click="saveRule()"> {{editType}} </button>
+</div>
+<table class="table table-hover">
+    <tr ng-repeat="rule in maps"><td><label><input type="checkbox" ng-model="rule.checked"/> {{rule.req}}</label></td></tr>
+</table>
+
+</div>
+</body>
+</html>

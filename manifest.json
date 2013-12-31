@@ -1,0 +1,21 @@
+{
+    "name": "ReRes",
+    "version": "0.0.1",
+    "description": "change the response.",
+    "manifest_version": 2,
+    "browser_action": {
+        "default_icon": "icon.png",
+        "default_title": "ReRes",
+        "default_popup": "popup.html"
+    },
+    "background": {
+        "scripts": ["background.js"],
+        "persistent": true
+    },
+    "permissions": [
+        "tabs",
+        "webRequest",   //注意这里一定要写
+        "webRequestBlocking", //注意这里一定要写
+        "<all_urls>"
+    ]
+} 
