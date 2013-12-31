@@ -2,27 +2,12 @@
 var reres = angular.module('reres', []);
 
 reres.controller('mapListCtrl', function($scope) {
-    var bg, ReResMap, maps = [];
+    var bg = chrome.extension.getBackgroundPage();
 
-    function init() {
-        bg = chrome.extension.getBackgroundPage();
-        ReResMap = bg.ReResMap;
-        maps = [];
-        for (var i in ReResMap) {
-            ReResMap[i].forEach(function (item) {
-                maps.push(item);
-            });
-        }
-        //原始规则列表
-        $scope.maps = maps;
-        console.log($scope.maps);
+    //保存规则数据到localStorage
+    function saveData() {
+        bg.localStorage.ReResMap = JSON.stringify($scope.maps);
     }
-    function update() {
-        bg.localStorage.ReResMap = JSON.stringify(ReResMap);
-        init();
-    }
-
-    init();
 
     //当前编辑的规则
     $scope.curRule = {
@@ -32,32 +17,76 @@ reres.controller('mapListCtrl', function($scope) {
         checked: true
     }
 
+    $scope.maps = bg.ReResMap;
+
     //编辑框显示状态
-    $scope.editShow = 'none';
+    $scope.editDisplay = 'none';
 
     //编辑框保存按钮文本
     $scope.editType = '添加';
 
+    //输入错误时候的警告
+    $scope.inputError = '';
+
+    //验证输入合法性
+    $scope.virify = function () {
+        if (!$scope.curRule.req || !$scope.curRule.res) {
+            $scope.inputError = '输入不能为空';
+            return false;
+        }
+        try {
+            new RegExp($scope.curRule.req)
+        } catch (e){
+            $scope.inputError = 'req正则格式错误';
+            return false;
+        }
+        $scope.inputError = '';
+        return true;
+    }
+
     // 点击添加按钮
     $scope.addRule = function () {
-        $scope.curRule = {
-            req: '',
-            res: '',
-            type: 'file',
-            checked: true
-        };
-        $scope.editType = '添加';
-        $scope.editShow = 'block';
+        if ($scope.editDisplay === 'none') {
+            $scope.curRule = {
+                req: '',
+                res: '',
+                type: 'file',
+                checked: true
+            };
+            $scope.editType = '添加';
+            $scope.editDisplay = 'block';
+        } else {
+            $scope.editType === '添加' && ($scope.editDisplay = 'none');
+        }
     };
+
+    //点击编辑按钮
+    $scope.edit = function (rule) {
+        $scope.curRule = rule;
+        $scope.editType = '编辑';
+        $scope.editDisplay = 'block';
+    }
 
     //编辑后保存
     $scope.saveRule = function () {
-        if($scope.editType == '添加'){
-            ReResMap[$scope.curRule.type].push($scope.curRule);
-            update();
-        }else{
+        if ( $scope.virify() ) {
+            if ($scope.editType === '添加') {
+                $scope.maps.push($scope.curRule);
+            } else {
 
-        };
-        $scope.editShow = 'none';
+            }
+            saveData();
+            $scope.editDisplay = 'none';
+        }
     };
+
+    //删除规则
+    $scope.removeUrl = function (rule) {
+        for (var i = 0, len = $scope.maps.length; i< len; i++) {
+            if ($scope.maps[i] === rule) {
+                $scope.maps.splice(i, 1);
+            }
+        }
+        saveData();
+    }
 });

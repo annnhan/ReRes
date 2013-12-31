@@ -2,11 +2,49 @@
 body {
   min-width: @mainWith;
   padding-top: 10px;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
-td label {
-  width: 100%;
-  height: 100%;
+
+td {
+  position: relative;
+  padding-right: 25px!important;
+  label {
+    width: 100%;
+    height: 100%;
+    white-space: nowrap;
+  }
+  input {
+    position: relative;
+    top: 1px;
+  }
+  button {
+    position: absolute;
+    z-index: 1;
+    display: none;
+  }
+  .remove {
+    top:9px;
+    right: 2px;
+    display: none;
+  }
+  .edit {
+    top:9px;
+    right: 45px;
+    display: none;
+  }
 }
+td:hover {
+  .edit, .remove {
+    display: block;
+  }
+}
+
 .editBox {
   padding-top: 10px;
+}
+
+.errorMsg {
+  text-align: center;
+  color: red;
 }

@@ -12,7 +12,8 @@
 <div class="container">
 
 <button class="btn-block btn btn-primary" ng-click="addRule()"> + </button>
-<div style="display:{{editShow}};" class="editBox">
+<div style="display:{{editDisplay}};" class="editBox">
+    <div class="errorMsg">{{inputError}}</div>
     <div class="form-group">
         <label for="req">req:</label>
         <input type="text" class="form-control" id="req" ng-model="curRule.req"/>
@@ -28,10 +29,16 @@
             <option value="dir">路径映射</option>
         </select>
     </div>
-    <button class="btn-block btn btn-primary" ng-click="saveRule()"> {{editType}} </button>
+    <button class="btn-block btn btn-primary" ng-click="saveRule()">保存</button>
 </div>
 <table class="table table-hover">
-    <tr ng-repeat="rule in maps"><td><label><input type="checkbox" ng-model="rule.checked"/> {{rule.req}}</label></td></tr>
+    <tr ng-repeat="rule in maps">
+        <td>
+            <label><input type="checkbox" ng-model="rule.checked"/> {{rule.req}}</label>
+            <button ng-click="edit(rule)" type="button" class="btn btn-primary btn-xs edit">编辑</button>
+            <button ng-click="removeUrl(rule)" type="button" class="btn btn-default btn-xs remove">删除</button>
+        </td>
+    </tr>
 </table>
 
 </div>
