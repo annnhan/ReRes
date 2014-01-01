@@ -11,8 +11,8 @@ reres.controller('mapListCtrl', function($scope) {
 
     //当前编辑的规则
     $scope.curRule = {
-        req: '',
-        res: '',
+        req: '^https?:\\/\\/.*',
+        res: 'http://',
         type: 'file',
         checked: true
     }
@@ -22,11 +22,26 @@ reres.controller('mapListCtrl', function($scope) {
     //编辑框显示状态
     $scope.editDisplay = 'none';
 
+    //添加按钮显示状态
+    $scope.addBtnDisplay = 'block';
+
     //编辑框保存按钮文本
     $scope.editType = '添加';
 
     //输入错误时候的警告
     $scope.inputError = '';
+
+    //隐藏编辑框
+    $scope.hideEditBox = function () {
+        $scope.editDisplay = 'none';
+        $scope.addBtnDisplay = 'block';
+    }
+
+    //显示编辑框
+    $scope.showEditBox = function () {
+        $scope.editDisplay = 'block';
+        $scope.addBtnDisplay = 'none';
+    }
 
     //验证输入合法性
     $scope.virify = function () {
@@ -46,25 +61,21 @@ reres.controller('mapListCtrl', function($scope) {
 
     // 点击添加按钮
     $scope.addRule = function () {
-        if ($scope.editDisplay === 'none') {
-            $scope.curRule = {
-                req: '',
-                res: '',
-                type: 'file',
-                checked: true
-            };
-            $scope.editType = '添加';
-            $scope.editDisplay = 'block';
-        } else {
-            $scope.editType === '添加' && ($scope.editDisplay = 'none');
-        }
+        $scope.curRule = {
+            req: '^https?:\\/\\/.*',
+            res: 'http://',
+            type: 'file',
+            checked: true
+        };
+        $scope.editType = '添加';
+        $scope.showEditBox();
     };
 
     //点击编辑按钮
     $scope.edit = function (rule) {
         $scope.curRule = rule;
         $scope.editType = '编辑';
-        $scope.editDisplay = 'block';
+        $scope.showEditBox();
     }
 
     //编辑后保存
@@ -76,7 +87,7 @@ reres.controller('mapListCtrl', function($scope) {
 
             }
             saveData();
-            $scope.editDisplay = 'none';
+            $scope.hideEditBox();
         }
     };
 

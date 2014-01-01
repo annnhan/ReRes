@@ -1,15 +1,12 @@
-@mainWith: 300px;
+@mainWith: 100%;
 body {
-  max-width: @mainWith;
+  min-width: @mainWith;
   padding-top: 10px;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 .table {
-  width: @mainWith - 30px;
-  max-width: @mainWith - 30px;
   margin-top: 10px;
-  overflow: hidden;
 }
 .btnBox {
   position: relative;
@@ -31,48 +28,36 @@ body {
     }
   }
 }
-td {
-  overflow: hidden;
+tr {
   position: relative;
-  width: @mainWith - 46px;
-  max-width: @mainWith - 46px;
-  white-space: nowrap;
-  text-overflow: ellipsis;
+  td {
+    position: relative;
+    div {
+      width: 400px;
+      overflow: hidden;
+      white-space: nowrap;
+      text-overflow: ellipsis;
+      word-break: break-all;
+    }
+  }
   label {
-    width: 100%;
     height: 100%;
-    overflow: hidden;
-    white-space: nowrap;
-    text-overflow: ellipsis;
   }
   input {
     position: relative;
     top: 1px;
   }
-  button {
-    position: absolute;
-    z-index: 1;
-    display: none;
-  }
-  .remove {
-    top:9px;
-    right: 2px;
-    display: none;
-  }
-  .edit {
-    top:9px;
-    right: 45px;
-    display: none;
-  }
-}
-td:hover {
-  .edit, .remove {
-    display: block;
-  }
 }
 
 .editBox {
   padding-top: 10px;
+  position: relative;
+  .close{
+    position: absolute;
+    top:2px;
+    right: 2px;
+    z-index: 1;
+  }
 }
 
 .errorMsg {

@@ -1,14 +1,11 @@
 body {
-  max-width: 300px;
+  min-width: 100%;
   padding-top: 10px;
   overflow: hidden;
   text-overflow: ellipsis;
 }
 .table {
-  width: 270px;
-  max-width: 270px;
   margin-top: 10px;
-  overflow: hidden;
 }
 .btnBox {
   position: relative;
@@ -30,46 +27,35 @@ body {
   right: 0px;
   cursor: pointer;
 }
-td {
-  overflow: hidden;
+tr {
   position: relative;
-  width: 254px;
-  max-width: 254px;
-  white-space: nowrap;
-  text-overflow: ellipsis;
 }
-td label {
-  width: 100%;
-  height: 100%;
+tr td {
+  position: relative;
+}
+tr td div {
+  width: 400px;
   overflow: hidden;
   white-space: nowrap;
   text-overflow: ellipsis;
+  word-break: break-all;
 }
-td input {
+tr label {
+  height: 100%;
+}
+tr input {
   position: relative;
   top: 1px;
 }
-td button {
-  position: absolute;
-  z-index: 1;
-  display: none;
-}
-td .remove {
-  top: 9px;
-  right: 2px;
-  display: none;
-}
-td .edit {
-  top: 9px;
-  right: 45px;
-  display: none;
-}
-td:hover .edit,
-td:hover .remove {
-  display: block;
-}
 .editBox {
   padding-top: 10px;
+  position: relative;
+}
+.editBox .close {
+  position: absolute;
+  top: 2px;
+  right: 2px;
+  z-index: 1;
 }
 .errorMsg {
   text-align: center;

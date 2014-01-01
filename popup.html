@@ -10,22 +10,25 @@
 </head>
 <body ng-controller="mapListCtrl">
 <div class="container">
+<div class="btnBox">
+    <button tabIndex="-1" class="btn btn-primary btn-block" ng-click="addRule()" style="display: {{addBtnDisplay}}"> + </button>
+</div>
 
-<button class="btn-block btn btn-primary" ng-click="addRule()"> + </button>
 <div style="display:{{editDisplay}};" class="editBox">
+    <button type="button" class="close" aria-hidden="true" ng-click="hideEditBox()">&times;</button>
     <div class="errorMsg">{{inputError}}</div>
     <div class="form-group">
-        <label for="req">req:</label>
+        <label for="req">If URL match:</label>
         <input type="text" class="form-control" id="req" ng-model="curRule.req"/>
     </div>
     <div class="form-group">
-        <label for="res">res:</label>
+        <label for="res">Response:</label>
         <input type="text" class="form-control" id="res" ng-model="curRule.res"/>
     </div>
     <div class="form-group">
-        <label for="type">type:</label>
+        <label for="type">Type:</label>
         <select ng-model="curRule.type" class="form-control" id="type">
-            <option value="file">单文件映射</option>
+            <option value="file">URL映射</option>
             <option value="dir">路径映射</option>
         </select>
     </div>
