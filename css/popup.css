@@ -1,6 +1,6 @@
 body {
   max-width: 300px;
-  padding-top: 10px;
+  padding-top: 15px;
   overflow: hidden;
   text-overflow: ellipsis;
 }
@@ -9,26 +9,17 @@ body {
   max-width: 270px;
   margin-top: 10px;
   overflow: hidden;
+  margin-bottom: 10px!important;
+}
+.container {
+  padding-right: 10px!important;
+  padding-left: 10px!important;
 }
 .btnBox {
   position: relative;
 }
-.btnBox .file {
-  position: absolute;
-  width: 54px;
-  height: 34px;
-  top: 0px;
-  left: 0px;
-  opacity: 0;
-  overflow: hidden;
-}
-.btnBox .file input {
-  position: absolute;
-  width: 54px;
-  height: 994px;
-  bottom: 0px;
-  right: 0px;
-  cursor: pointer;
+.btnBox .btn {
+  margin: 0 3px;
 }
 td {
   overflow: hidden;

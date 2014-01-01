@@ -1,12 +1,84 @@
 [
     {
-        "req":"^https?:\\/\\/.*test\.com",
+        "req":"^https?:\\/\\/.*test.com",
         "res":"http://qunar.com",
         "type":"dir",
         "checked":false
     },
     {
-        "req":".*hanan\.com",
+        "req":".*hanan.com",
+        "res":"http://cssha.com",
+        "type":"file",
+        "checked":true
+    },
+    {
+        "req":"^https?:\\/\\/.*test.com",
+        "res":"http://qunar.com",
+        "type":"dir",
+        "checked":false
+    },
+    {
+        "req":".*hanan.com",
+        "res":"http://cssha.com",
+        "type":"file",
+        "checked":true
+    },
+    {
+        "req":"^https?:\\/\\/.*test.com",
+        "res":"http://qunar.com",
+        "type":"dir",
+        "checked":false
+    },
+    {
+        "req":".*hanan.com",
+        "res":"http://cssha.com",
+        "type":"file",
+        "checked":true
+    },
+    {
+        "req":"^https?:\\/\\/.*test.com",
+        "res":"http://qunar.com",
+        "type":"dir",
+        "checked":false
+    },
+    {
+        "req":".*hanan.com",
+        "res":"http://cssha.com",
+        "type":"file",
+        "checked":true
+    },
+    {
+        "req":"^https?:\\/\\/.*test.com",
+        "res":"http://qunar.com",
+        "type":"dir",
+        "checked":false
+    },
+    {
+        "req":".*hanan.com",
+        "res":"http://cssha.com",
+        "type":"file",
+        "checked":true
+    },
+    {
+        "req":"^https?:\\/\\/.*test.com",
+        "res":"http://qunar.com",
+        "type":"dir",
+        "checked":false
+    },
+    {
+        "req":".*hanan.com",
+        "res":"http://cssha.com",
+        "type":"file",
+        "checked":true
+    },
+    {
+        "req":"^https?:\\/\\/.*test.com",
+        "res":"http://qunar.com",
+        "type":"dir",
+        "checked":false
+    },
+    {
+        "req":".*hanan.com",
         "res":"http://cssha.com",
         "type":"file",
         "checked":true

@@ -11,7 +11,10 @@
 <body ng-controller="mapListCtrl">
 <div class="container">
 <div class="btnBox">
-    <button tabIndex="-1" class="btn btn-primary btn-block" ng-click="addRule()" style="display: {{addBtnDisplay}}"> + </button>
+    <button tabIndex="-1" class="btn btn-primary btn-xs" ng-click="addRule()">添加规则</button>
+    <a href="options.html" target="_blank" tabIndex="-1" class="btn btn-primary btn-xs">管理规则</a>
+    <a href="https://github.com/hanan198501/ReRes" target="_blank" tabIndex="-1" class="btn btn-primary btn-xs">Github</a>
+    <a href="http://cssha.com/reres" target="_blank" tabIndex="-1" class="btn btn-primary btn-xs">使用帮助</a>
 </div>
 
 <div style="display:{{editDisplay}};" class="editBox">
@@ -29,7 +32,7 @@
         <label for="type">Type:</label>
         <select ng-model="curRule.type" class="form-control" id="type">
             <option value="file">URL映射</option>
-            <option value="dir">路径映射</option>
+            <option value="dir">目录映射</option>
         </select>
     </div>
     <button class="btn-block btn btn-primary" ng-click="saveRule()">保存</button>

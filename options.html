@@ -9,14 +9,18 @@
     <script type="text/javascript" src="js/options.js"></script>
 </head>
 <body ng-controller="mapListCtrl">
-<div class="container">
-    <div class="btnBox">
-        <button class="btn btn-primary">导入</button>
-        <div class="file"><input type="file" id="jsonFile"/></div>
-        <button class="btn btn-primary" ng-click="export()">导出</button>
-        <button class="btn btn-primary" ng-click="addRule()"> + </button>
+<div class="navbar navbar-inverse navbar-fixed-top top">
+    <div class="container">
+        <div class="btnBox">
+            <span class="h2"><a title="view in the github" href="https://github.com/hanan198501/ReRes" target="_blank">ReRes</a></span>
+            <small> &nbsp;&nbsp;&nbsp;&nbsp;Change the response of the request.</small>
+            <button class="btn btn-primary fr" ng-click="export()">导出</button>
+            <div class="file fr"><button class="btn btn-primary">导入</button><input type="file" id="jsonFile"/></div>
+            <button class="btn btn-primary fr" ng-click="addRule()"> + </button>
+        </div>
     </div>
-
+</div>
+<div class="container">
     <div style="display:{{editDisplay}};" class="editBox">
         <button type="button" class="close" aria-hidden="true" ng-click="hideEditBox()">&times;</button>
         <div class="errorMsg">{{inputError}}</div>
@@ -32,7 +36,7 @@
             <label for="type">Type:</label>
             <select ng-model="curRule.type" class="form-control" id="type">
                 <option value="file">URL映射</option>
-                <option value="dir">路径映射</option>
+                <option value="dir">目录映射</option>
             </select>
         </div>
         <button class="btn-block btn btn-primary" ng-click="saveRule()">保存</button>
@@ -40,11 +44,11 @@
     <table class="table table-hover">
         <thead>
             <tr>
-                <td>启用</td>
+                <td>Enable</td>
                 <td>If URL match</td>
                 <td>Response</td>
-                <td>类型</td>
-                <td>操作</td>
+                <td>Type</td>
+                <td>Operating</td>
             </tr>
         </thead>
         <tboby>
@@ -52,7 +56,7 @@
                 <td><input type="checkbox" ng-model="rule.checked"/></td>
                 <td><div>{{rule.req}}</div></td>
                 <td><div>{{rule.res}}</div></td>
-                <td>{{rule.type == "file" ? "URL映射" : "路径映射"}}</td>
+                <td>{{rule.type == "file" ? "URL映射" : "目录映射"}}</td>
                 <td>
                     <button ng-click="edit(rule)" type="button" class="btn btn-primary btn-xs edit">编辑</button>
                     <button ng-click="removeUrl(rule)" type="button" class="btn btn-default btn-xs remove">删除</button>

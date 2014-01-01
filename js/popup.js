@@ -1,7 +1,7 @@
 'use strict';
 var reres = angular.module('reres', []);
 
-reres.controller('mapListCtrl', function($scope) {
+reres.controller('mapListCtrl', function ($scope) {
     var bg = chrome.extension.getBackgroundPage();
 
     //保存规则数据到localStorage
@@ -11,8 +11,8 @@ reres.controller('mapListCtrl', function($scope) {
 
     //当前编辑的规则
     $scope.curRule = {
-        req: '^https?:\\/\\/.*',
-        res: 'http://',
+        req: '.*reqtest\\.com',
+        res: 'http://restest\\.com',
         type: 'file',
         checked: true
     }
@@ -22,8 +22,8 @@ reres.controller('mapListCtrl', function($scope) {
     //编辑框显示状态
     $scope.editDisplay = 'none';
 
-    //添加按钮显示状态
-    $scope.addBtnDisplay = 'block';
+    //按钮框显示状态
+//    $scope.btnDisplay = 'block';
 
     //编辑框保存按钮文本
     $scope.editType = '添加';
@@ -34,13 +34,13 @@ reres.controller('mapListCtrl', function($scope) {
     //隐藏编辑框
     $scope.hideEditBox = function () {
         $scope.editDisplay = 'none';
-        $scope.addBtnDisplay = 'block';
+//        $scope.btnDisplay = 'block';
     }
 
     //显示编辑框
     $scope.showEditBox = function () {
         $scope.editDisplay = 'block';
-        $scope.addBtnDisplay = 'none';
+//        $scope.btnDisplay = 'none';
     }
 
     //验证输入合法性
@@ -51,7 +51,7 @@ reres.controller('mapListCtrl', function($scope) {
         }
         try {
             new RegExp($scope.curRule.req)
-        } catch (e){
+        } catch (e) {
             $scope.inputError = 'req正则格式错误';
             return false;
         }
@@ -62,8 +62,8 @@ reres.controller('mapListCtrl', function($scope) {
     // 点击添加按钮
     $scope.addRule = function () {
         $scope.curRule = {
-            req: '^https?:\\/\\/.*',
-            res: 'http://',
+            req: '.*reqtest\\.com',
+            res: 'http://restest\\.com',
             type: 'file',
             checked: true
         };
@@ -80,7 +80,7 @@ reres.controller('mapListCtrl', function($scope) {
 
     //编辑后保存
     $scope.saveRule = function () {
-        if ( $scope.virify() ) {
+        if ($scope.virify()) {
             if ($scope.editType === '添加') {
                 $scope.maps.push($scope.curRule);
             } else {
@@ -93,7 +93,7 @@ reres.controller('mapListCtrl', function($scope) {
 
     //删除规则
     $scope.removeUrl = function (rule) {
-        for (var i = 0, len = $scope.maps.length; i< len; i++) {
+        for (var i = 0, len = $scope.maps.length; i < len; i++) {
             if ($scope.maps[i] === rule) {
                 $scope.maps.splice(i, 1);
             }

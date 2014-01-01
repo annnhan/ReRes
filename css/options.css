@@ -1,30 +1,38 @@
 body {
   min-width: 100%;
-  padding-top: 10px;
-  overflow: hidden;
-  text-overflow: ellipsis;
+}
+.top {
+  position: static!important;
+  padding-top: 8px;
+  margin-bottom: 0px!important;
+  color: #999999;
+}
+.fr {
+  float: right;
+  margin-right: 10px;
 }
 .table {
   margin-top: 10px;
+}
+.table thead {
+  font-weight: bold;
 }
 .btnBox {
   position: relative;
 }
 .btnBox .file {
-  position: absolute;
   width: 54px;
   height: 34px;
-  top: 0px;
-  left: 0px;
-  opacity: 0;
   overflow: hidden;
+  position: relative;
 }
 .btnBox .file input {
   position: absolute;
-  width: 54px;
+  width: 67px;
   height: 994px;
   bottom: 0px;
   right: 0px;
+  opacity: 0;
   cursor: pointer;
 }
 tr {

@@ -11,8 +11,8 @@ reres.controller('mapListCtrl', function($scope) {
 
     //当前编辑的规则
     $scope.curRule = {
-        req: '^https?:\\/\\/.*',
-        res: 'http://',
+        req: '.*reqtest\\.com',
+        res: 'http://restest\\.com',
         type: 'file',
         checked: true
     }
@@ -53,8 +53,8 @@ reres.controller('mapListCtrl', function($scope) {
     $scope.addRule = function () {
         if ($scope.editDisplay === 'none') {
             $scope.curRule = {
-                req: '^https?:\\/\\/.*',
-                res: 'http://',
+                req: '.*reqtest\\.com',
+                res: 'http://restest\\.com',
                 type: 'file',
                 checked: true
             };
@@ -128,13 +128,17 @@ reres.controller('mapListCtrl', function($scope) {
             var reader = new FileReader();
             reader.readAsText(resultFile);
             reader.onload = function (e) {
-                var data = JSON.parse(this.result);
-                $scope.maps.length = 0;
-                for (var i = 0, len = data.length; i < len; i++) {
-                    $scope.maps.push(data[i]);
+                try {
+                    var data = JSON.parse(this.result);
+                    $scope.maps.length = 0;
+                    for (var i = 0, len = data.length; i < len; i++) {
+                        $scope.maps.push(data[i]);
+                    }
+                    saveData();
+                    location.reload();
+                } catch (e) {
+                    alert("导入失败，请检查文件格式是否正确");
                 }
-                saveData();
-                location.reload();
             };
         }
     }

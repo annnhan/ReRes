@@ -1,7 +1,7 @@
 {
     "name": "ReRes",
     "version": "1.0",
-    "description": "change the response.",
+    "description": "Change the response of the request.",
     "manifest_version": 2,
     "browser_action": {
         "default_icon": "icon.png",
