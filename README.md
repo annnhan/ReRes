@@ -72,7 +72,7 @@ Change the response of the request.
 
  
 
-**本插件源码托管在<a href="https://github.com/hanan198501/ReRes" target="_blank">https://github.com/hanan198501/ReRes</a>，开发过程中采用了以下开源项目，感谢支持：**
+**本插件开发过程中采用了以下开源项目，感谢支持：**
 
 *   LESS
 *   Bootstrap
