@@ -13,6 +13,11 @@
         "scripts": ["background.js"],
         "persistent": true
     },
+    "icons":
+    {
+        "16": "icon.png",
+        "48": "icon48.png"
+    },
     "permissions": [
         "tabs",
         "webRequest",
