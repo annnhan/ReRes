@@ -18,7 +18,6 @@
         "webRequest",
         "webRequestBlocking",
         "<all_urls>",
-        "file:///*/",
         "unlimitedStorage"
     ],
     "update_url": "http://clients2.google.com/service/update2/crx"
