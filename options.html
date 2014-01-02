@@ -55,8 +55,8 @@
         <tboby>
             <tr ng-repeat="rule in maps">
                 <td><input type="checkbox" ng-model="rule.checked"/></td>
-                <td><div>{{rule.req}}</div></td>
-                <td><div>{{rule.res}}</div></td>
+                <td><div title="{{rule.req}}">{{rule.req}}</div></td>
+                <td><div title="{{rule.res}}">{{rule.res}}</div></td>
                 <td>{{rule.type == "file" ? "URL映射" : "目录映射"}}</td>
                 <td>
                     <button ng-click="edit(rule)" type="button" class="btn btn-primary btn-xs edit">编辑</button>
