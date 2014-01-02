@@ -21,7 +21,7 @@ Change the response of the request.
 
 安装完毕后，在地址栏输入`chrome://extensions/`进入扩展页，找到ReRes，勾选“允许访问文件网址”，这样才能让ReRes支持本地映射，如下图：
 
-![](http://t3.qpic.cn/mblogpic/3fac61954487ae4ca6aa/460)
+<img src="http://t3.qpic.cn/mblogpic/3fac61954487ae4ca6aa/460" />
 
 **添加规则**
 
