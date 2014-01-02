@@ -11,8 +11,8 @@ reres.controller('mapListCtrl', function ($scope) {
 
     //当前编辑的规则
     $scope.curRule = {
-        req: '.*reqtest\\.com',
-        res: 'http://restest\\.com',
+        req: '.*test\\.com',
+        res: 'http://cssha.com',
         type: 'file',
         checked: true
     }
@@ -62,8 +62,8 @@ reres.controller('mapListCtrl', function ($scope) {
     // 点击添加按钮
     $scope.addRule = function () {
         $scope.curRule = {
-            req: '.*reqtest\\.com',
-            res: 'http://restest\\.com',
+            req: '.*test\\.com',
+            res: 'http://cssha.com',
             type: 'file',
             checked: true
         };
