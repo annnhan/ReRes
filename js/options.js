@@ -117,7 +117,7 @@ reres.controller('mapListCtrl', function($scope) {
         }
 
         var URL = URL || webkitURL || window;
-        var bb = new Blob([JSON.stringify($scope.maps)], {type: 'text/json'});
+        var bb = new Blob([JSON.stringify($scope.maps, null, '\t')], {type: 'text/json'});
         saveAs(bb, 'ReResSetting.json');
     }
 
