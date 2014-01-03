@@ -23,6 +23,8 @@ Change the response of the request.
 
 <img src="http://t3.qpic.cn/mblogpic/3fac61954487ae4ca6aa/460" />
 
+至此，ReRes就可以使用了。下面是一些基本功能的使用操作方法：
+
 **添加规则**
 
 点击“添加规则”按钮，输入以下信息，然后保存：
