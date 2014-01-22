@@ -30,7 +30,7 @@ Change the response of the request.
 点击“添加规则”按钮，输入以下信息，然后保存：
 
 *   **If URL match**： 一个正则表达式，当请求的URL与之匹配时，规则生效。注意:不要填开头的<code>/</code>和结束的<code>/gi</code>，如<code>/.\*/gi</code>请写成<code>.\*</code>
-*   **Response**： 映射的响应地址，这个地址回替换掉url中与上面正则匹配的部分。线上地址请以http://开头，本地地址以file:///开头，比如<code>http://cssha.com</code>或<code>file:///D:/a.js</code>
+*   **Response**： 映射的响应地址，这个地址会替换掉url中与上面正则匹配的部分。线上地址请以http://开头，本地地址以file:///开头，比如<code>http://cssha.com</code>或<code>file:///D:/a.js</code>
 
 **启动/禁用**
 
