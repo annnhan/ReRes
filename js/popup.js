@@ -13,7 +13,7 @@ reres.controller('mapListCtrl', function ($scope) {
     $scope.curRule = {
         req: '.*test\\.com',
         res: 'http://cssha.com',
-        type: 'file',
+//        type: 'file',
         checked: true
     }
 
@@ -64,7 +64,7 @@ reres.controller('mapListCtrl', function ($scope) {
         $scope.curRule = {
             req: '.*test\\.com',
             res: 'http://cssha.com',
-            type: 'file',
+//            type: 'file',
             checked: true
         };
         $scope.editType = '添加';

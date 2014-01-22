@@ -33,13 +33,13 @@
             <label for="res">Response:</label>
             <input type="text" class="form-control" id="res" ng-model="curRule.res"/>
         </div>
-        <div class="form-group">
+<!--        <div class="form-group">
             <label for="type">Type:</label>
             <select ng-model="curRule.type" class="form-control" id="type">
                 <option value="file">URL映射</option>
                 <option value="dir">目录映射</option>
             </select>
-        </div>
+        </div>-->
         <button class="btn-block btn btn-primary" ng-click="saveRule()">保存</button>
     </div>
     <table class="table table-hover">
@@ -48,7 +48,7 @@
                 <td>Enable</td>
                 <td>If URL match</td>
                 <td>Response</td>
-                <td>Type</td>
+                <!--<td>Type</td>-->
                 <td>Operating</td>
             </tr>
         </thead>
@@ -57,7 +57,7 @@
                 <td><input type="checkbox" ng-model="rule.checked"/></td>
                 <td><div title="{{rule.req}}">{{rule.req}}</div></td>
                 <td><div title="{{rule.res}}">{{rule.res}}</div></td>
-                <td>{{rule.type == "file" ? "URL映射" : "目录映射"}}</td>
+                <!--<td>{{rule.type == "file" ? "URL映射" : "目录映射"}}</td>-->
                 <td>
                     <button ng-click="edit(rule)" type="button" class="btn btn-primary btn-xs edit">编辑</button>
                     <button ng-click="removeUrl(rule)" type="button" class="btn btn-default btn-xs remove">删除</button>

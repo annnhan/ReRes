@@ -13,7 +13,7 @@ reres.controller('mapListCtrl', function($scope) {
     $scope.curRule = {
         req: '.*test\\.com',
         res: 'http://cssha.com',
-        type: 'file',
+//        type: 'file',
         checked: true
     }
 
@@ -40,7 +40,7 @@ reres.controller('mapListCtrl', function($scope) {
             return false;
         }
         try {
-            new RegExp($scope.curRule.req)
+            new RegExp($scope.curRule.req);
         } catch (e){
             $scope.inputError = 'req正则格式错误';
             return false;
@@ -55,7 +55,7 @@ reres.controller('mapListCtrl', function($scope) {
             $scope.curRule = {
                 req: '.*test\\.com',
                 res: 'http://cssha.com',
-                type: 'file',
+//                type: 'file',
                 checked: true
             };
             $scope.editType = '添加';
