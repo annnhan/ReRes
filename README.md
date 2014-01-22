@@ -29,9 +29,8 @@ Change the response of the request.
 
 点击“添加规则”按钮，输入以下信息，然后保存：
 
-*   **If URL match**： 一个正则表达式，当请求的URL与之匹配时，规则生效。注意:不要填开头的<code>/</code>和结束的<code>/g</code>，如<code>/.\*/g</code>请写成<code>.\*</code>
-*   **Response**： 映射的响应地址，线上地址以http://开头，本地地址以file:///开头，比如<code>http://cssha.com</code>或<code>file:///D:/a.js</code>
-*   **Type**： 映射的类型
+*   **If URL match**： 一个正则表达式，当请求的URL与之匹配时，规则生效。注意:不要填开头的<code>/</code>和结束的<code>/gi</code>，如<code>/.\*/gi</code>请写成<code>.\*</code>
+*   **Response**： 映射的响应地址，这个地址回替换掉url中与上面正则匹配的部分。线上地址请以http://开头，本地地址以file:///开头，比如<code>http://cssha.com</code>或<code>file:///D:/a.js</code>
 
 **启动/禁用**
 
@@ -53,13 +52,11 @@ Change the response of the request.
     {
         "req":"^https?:\\/\\/.*test.com",
         "res":"http://qunar.com",
-        "type":"dir",
         "checked":false
     },
     {
         "req":".*hanan.com",
         "res":"http://cssha.com",
-        "type":"file",
         "checked":true
     }
 ]
@@ -69,7 +66,6 @@ Change the response of the request.
 
 *   **req**：请求所匹配的正则表达式（对应于If URL match输入框的内容）
 *   **res**：映射的响应地址（对应Response输入框的内容）
-*   **type**：映射的类型（对应Type选择框的内容）
 *   **checked**：是否启用
 
  

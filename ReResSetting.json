@@ -2,13 +2,11 @@
     {
         "req":"^https?:\\/\\/.*test.com",
         "res":"http://qunar.com",
-        "type":"dir",
         "checked":false
     },
     {
         "req":".*hanan.com",
         "res":"http://cssha.com",
-        "type":"file",
         "checked":true
     }
 ]
