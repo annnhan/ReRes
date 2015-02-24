@@ -38,7 +38,7 @@
     <button class="btn-block btn btn-primary" ng-click="saveRule()">保存</button>
 </div>
 <table class="table table-hover">
-    <tr ng-repeat="rule in maps">
+    <tr ng-repeat="rule in maps track by $index">
         <td>
             <label title="Responese: {{rule.res}}"><input type="checkbox" ng-model="rule.checked"/> {{rule.req}}</label>
             <button ng-click="edit(rule)" type="button" class="btn btn-primary btn-xs edit">编辑</button>
