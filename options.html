@@ -53,7 +53,7 @@
             </tr>
         </thead>
         <tboby>
-            <tr ng-repeat="rule in maps">
+            <tr ng-repeat="rule in maps track by $index">
                 <td><input type="checkbox" ng-model="rule.checked"/></td>
                 <td><div title="{{rule.req}}">{{rule.req}}</div></td>
                 <td><div title="{{rule.res}}">{{rule.res}}</div></td>
