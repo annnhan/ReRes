@@ -6,7 +6,7 @@ reres.controller('mapListCtrl', function ($scope) {
 
     //保存规则数据到localStorage
     function saveData() {
-        bg.localStorage.ReResMap = JSON.stringify($scope.maps);
+        bg.localStorage.ReResMap = angular.toJson($scope.maps);
     }
 
     //当前编辑的规则
