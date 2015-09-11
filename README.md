@@ -19,6 +19,8 @@ Change the response of the request.
 
 首先从chrome商店安装ReRes： <a target="_black" href="https://chrome.google.com/webstore/detail/reres/gieocpkbblidnocefjakldecahgeeica?hl=zh-CN&gl=CN">https://chrome.google.com/webstore/detail/reres/gieocpkbblidnocefjakldecahgeeica?hl=zh-CN&gl=CN</a>
 
+或者下载安装：[http://annn.me/assets/download/ReRes.crx](http://annn.me/assets/download/ReRes.crx)
+
 安装完毕后，在地址栏输入`chrome://extensions/`进入扩展页，找到ReRes，勾选“允许访问文件网址”，这样才能让ReRes支持本地映射，如下图：
 
 <img src="http://t3.qpic.cn/mblogpic/3fac61954487ae4ca6aa/460" />
