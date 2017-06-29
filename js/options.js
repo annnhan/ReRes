@@ -88,10 +88,10 @@ reres.controller('mapListCtrl', function($scope) {
         if ( $scope.virify() ) {
             if ($scope.editType === '添加') {
                 $scope.maps.push($scope.curRule);
-                $scope.rules = groupBy($scope.maps, 'group');
             } else {
 
             }
+            $scope.rules = groupBy($scope.maps, 'group');
             saveData();
             $scope.editDisplay = 'none';
         }
