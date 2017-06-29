@@ -1,6 +1,16 @@
 'use strict';
 var reres = angular.module('reres', []);
 
+var groupBy = function (collects, name) {
+    var ret = {}, key;
+    collects.forEach(function(elem) {
+        var key = elem[name];
+        ret[key] = ret[key] || [];
+        ret[key].push(elem);
+    });
+    return ret;
+}
+
 reres.controller('mapListCtrl', function($scope) {
     var bg = chrome.extension.getBackgroundPage();
 
@@ -18,6 +28,7 @@ reres.controller('mapListCtrl', function($scope) {
     }
 
     $scope.maps = bg.ReResMap;
+    $scope.rules = groupBy(bg.ReResMap, 'group');
 
     //编辑框显示状态
     $scope.editDisplay = 'none';
@@ -77,6 +88,7 @@ reres.controller('mapListCtrl', function($scope) {
         if ( $scope.virify() ) {
             if ($scope.editType === '添加') {
                 $scope.maps.push($scope.curRule);
+                $scope.rules = groupBy($scope.maps, 'group');
             } else {
 
             }
