@@ -70,6 +70,7 @@ Change the response of the request.
 
 *   **req**：请求所匹配的正则表达式（对应于If URL match输入框的内容）
 *   **res**：映射的响应地址（对应Response输入框的内容）
+*   **group**：分组名称
 *   **checked**：是否启用
 
  
