@@ -54,11 +54,13 @@ Change the response of the request.
     {
         "req":"^https?:\\/\\/.*test.com",
         "res":"http://qunar.com",
+        "group": "[groupName]",
         "checked":false
     },
     {
         "req":".*hanan.com",
         "res":"http://cssha.com",
+        "group": "[groupName]",
         "checked":true
     }
 ]
