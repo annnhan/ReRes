@@ -61,7 +61,7 @@
                         </thead>
                         <tbody>
                             <tr ng-repeat="rule in rulesMap track by $index">
-                                <td ng-if="$index === 0" rowspan="{{rulesMap.length}}" style="width: 140px;vertical-align: middle;border-right: 1px solid #ddd;background: #fff;">{{group}}</td>
+                                <td ng-if="$index === 0" rowspan="{{rulesMap.length}}" style="width: 140px;vertical-align: middle;border-right: 1px solid #ddd;background: #fff;">{{group || group === unidefined || '未命名'}}</td>
                                 <td><input type="checkbox" ng-model="rule.checked"/></td>
                                 <td><div title="{{rule.req}}">{{rule.req}}</div></td>
                                 <td><div title="{{rule.res}}">{{rule.res}}</div></td>

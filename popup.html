@@ -28,6 +28,10 @@
         <label for="res">Response:</label>
         <input type="text" class="form-control" id="res" ng-model="curRule.res"/>
     </div>
+    <div class="form-group">
+        <label for="res">Group:</label>
+        <input type="text" class="form-control" id="group" ng-model="curRule.group"/>
+    </div>
     <!--<div class="form-group">
         <label for="type">Type:</label>
         <select ng-model="curRule.type" class="form-control" id="type">
@@ -38,7 +42,7 @@
     <button class="btn-block btn btn-primary" ng-click="saveRule()">保存</button>
 </div>
 <div ng-repeat="(group, rulesMap) in rules track by $index">
-    <h5 style="text-align: center;font-weight: bold;">[{{group}}]</h5>
+    <h5 style="text-align: center;font-weight: bold;">[{{group || group === unidefined || '未命名'}}]</h5>
     <table class="table table-hover">
         <tr ng-repeat="rule in rulesMap track by $index">
             <td>

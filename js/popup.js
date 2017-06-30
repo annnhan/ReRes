@@ -15,6 +15,7 @@ reres.controller('mapListCtrl', function ($scope) {
 
     //保存规则数据到localStorage
     function saveData() {
+        $scope.rules = groupBy($scope.maps, 'group');
         bg.localStorage.ReResMap = angular.toJson($scope.maps);
     }
 
@@ -96,7 +97,6 @@ reres.controller('mapListCtrl', function ($scope) {
             } else {
 
             }
-            $scope.rules = groupBy(bg.ReResMap, 'group');
             saveData();
             $scope.hideEditBox();
         }
