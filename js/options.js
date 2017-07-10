@@ -1,11 +1,22 @@
 'use strict';
 var reres = angular.module('reres', []);
 
+var groupBy = function (collects, name) {
+    var ret = {}, key;
+    collects.forEach(function(elem) {
+        var key = elem[name];
+        ret[key] = ret[key] || [];
+        ret[key].push(elem);
+    });
+    return ret;
+}
+
 reres.controller('mapListCtrl', function($scope) {
     var bg = chrome.extension.getBackgroundPage();
 
     //保存规则数据到localStorage
     function saveData() {
+        $scope.rules = groupBy($scope.maps, 'group');
         bg.localStorage.ReResMap = angular.toJson($scope.maps);
     }
 
@@ -18,6 +29,7 @@ reres.controller('mapListCtrl', function($scope) {
     }
 
     $scope.maps = bg.ReResMap;
+    $scope.rules = groupBy(bg.ReResMap, 'group');
 
     //编辑框显示状态
     $scope.editDisplay = 'none';

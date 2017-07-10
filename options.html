@@ -33,6 +33,10 @@
             <label for="res">Response:</label>
             <input type="text" class="form-control" id="res" ng-model="curRule.res"/>
         </div>
+        <div class="form-group">
+            <label for="res">Group:</label>
+            <input type="text" class="form-control" id="res" ng-model="curRule.group"/>
+        </div>
 <!--        <div class="form-group">
             <label for="type">Type:</label>
             <select ng-model="curRule.type" class="form-control" id="type">
@@ -42,25 +46,33 @@
         </div>-->
         <button class="btn-block btn btn-primary" ng-click="saveRule()">保存</button>
     </div>
-    <table class="table table-hover">
-        <thead>
-            <tr>
-                <td>Enable</td>
-                <td>If URL match</td>
-                <td>Response</td>
-                <!--<td>Type</td>-->
-                <td>Operating</td>
-            </tr>
-        </thead>
+    <table>
         <tboby>
-            <tr ng-repeat="rule in maps track by $index">
-                <td><input type="checkbox" ng-model="rule.checked"/></td>
-                <td><div title="{{rule.req}}">{{rule.req}}</div></td>
-                <td><div title="{{rule.res}}">{{rule.res}}</div></td>
-                <!--<td>{{rule.type == "file" ? "URL映射" : "目录映射"}}</td>-->
+            <tr ng-repeat="(group, rulesMap) in rules track by $index">
                 <td>
-                    <button ng-click="edit(rule)" type="button" class="btn btn-primary btn-xs edit">编辑</button>
-                    <button ng-click="removeUrl(rule)" type="button" class="btn btn-default btn-xs remove">删除</button>
+                    <table class="table table-hover table-bordered">
+                        <thead>
+                            <td>Group</td>
+                            <td>Enable</td>
+                            <td>If URL match</td>
+                            <td>Response</td>
+                            <!--<td>Type</td>-->
+                            <td>Operating</td>
+                        </thead>
+                        <tbody>
+                            <tr ng-repeat="rule in rulesMap track by $index">
+                                <td ng-if="$index === 0" rowspan="{{rulesMap.length}}" style="width: 140px;vertical-align: middle;border-right: 1px solid #ddd;background: #fff;">{{group || group === unidefined || '未命名'}}</td>
+                                <td><input type="checkbox" ng-model="rule.checked"/></td>
+                                <td><div title="{{rule.req}}">{{rule.req}}</div></td>
+                                <td><div title="{{rule.res}}">{{rule.res}}</div></td>
+                                <!--<td>{{rule.type == "file" ? "URL映射" : "目录映射"}}</td>-->
+                                <td>
+                                    <button ng-click="edit(rule)" type="button" class="btn btn-primary btn-xs edit">编辑</button>
+                                    <button ng-click="removeUrl(rule)" type="button" class="btn btn-default btn-xs remove">删除</button>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>
                 </td>
             </tr>
         </tboby>
