@@ -45,16 +45,20 @@ chrome.webRequest.onBeforeRequest.addListener(function (details) {
 //                    return ReResMap[i].type === 'file' ?
 //                    {redirectUrl: ReResMap[i].res} :
 //                    {redirectUrl: url.replace(reg, ReResMap[i].res)};
-                    return {redirectUrl: url.replace(reg, ReResMap[i].res)};
+                    do {
+                        url = url.replace(reg, ReResMap[i].res);
+                    } while (reg.test(url))
                 } else {
 //                    return ReResMap[i].type === 'file' ?
 //                    {redirectUrl: getLocalFileUrl(ReResMap[i].res)} :
 //                    {redirectUrl: getLocalFileUrl(url.replace(reg, ReResMap[i].res))};
-                    return {redirectUrl: getLocalFileUrl(url.replace(reg, ReResMap[i].res))};
+                    do {
+                        url = getLocalFileUrl(url.replace(reg, ReResMap[i].res));
+                    } while (reg.test(url))
                 }
             }
         }
-        return true;
+        return url === details.url ? {} : { redirectUrl: url };
     },
     {urls: ["<all_urls>"]},
     ["blocking"]
