@@ -47,8 +47,8 @@ reres.controller('mapListCtrl', function($scope) {
 
     //验证输入合法性
     $scope.virify = function () {
-        if (!$scope.curRule.req || !$scope.curRule.res) {
-            $scope.inputError = '输入不能为空';
+        if (!$scope.curRule.req) {
+            $scope.inputError = '正则一栏输入不能为空';
             return false;
         }
         try {
