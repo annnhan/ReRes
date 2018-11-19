@@ -40,7 +40,7 @@ chrome.webRequest.onBeforeRequest.addListener(function (details) {
         var url = details.url;
         for (var i = 0, len = ReResMap.length; i < len; i++) {
             var reg = new RegExp(ReResMap[i].req, 'gi');
-            if (ReResMap[i].checked && ReResMap[i].res && reg.test(url)) {
+            if (ReResMap[i].checked && typeof ReResMap[i].res === 'string' && reg.test(url)) {
                 if (!/^file:\/\//.test(ReResMap[i].res)) {
 //                    return ReResMap[i].type === 'file' ?
 //                    {redirectUrl: ReResMap[i].res} :
